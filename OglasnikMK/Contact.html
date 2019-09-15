@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Огласник Контакт</title>
+
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-ui.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+    <!--slider script-->
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 50000,
+                values: [ 3000, 10000],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+        });
+
+    </script>
+
+    <!--popover script-->
+    <script>
+        $(document).ready(function() {
+            $('[data-toggle="popoverNovOglas"]').popover();
+        });
+    </script>
+
+    <!--login form-->
+    <div class="modal fade" role="dialog" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success" >
+                    <h3 class="modal-title text-white">Најавете се </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body ">
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" placeholder="Е-маил или Корисничко име">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Лозинка">
+                    </div>
+
+                    <a style="font-size: 90%" href="#">Сакате да се регистрирате?</a>
+                    <b style="color: white">|</b>
+                    <a style="font-size: 90%" href="#">Ја заборавивте лозинката?</a>
+                    <br>
+                    <br> <input type="checkbox" > Запомни ме
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" style="width: 140px" class="btn btn-success">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .aa:hover{
+            border-bottom-style: solid;
+            border-bottom-color: red;
+            border-right-color: transparent;
+            border-left-color:transparent ;
+            border-top-color:transparent ;
+
+        }
+        .asd:hover{
+            border-bottom-style: solid;
+            border-bottom-color: red;
+            border-width: 2px;
+            border-right-color: white;
+            border-left-color:white ;
+            border-top-color:white ;
+
+        }
+        .aaa:hover{
+            border-style:initial;
+            border-top-color: red;
+            border-bottom-color: red;
+            border-left-color: lightgrey;
+            border-right-color: lightgrey;
+            text-decoration-style: dashed;
+
+
+        }
+    </style>
+
+</head>
+<body style="background-color: lightgrey">
+
+<div style="background-color: lightgrey">
+
+    <!--navbar-->
+    <nav class=" pb-1 mb-4  navbar navbar-expand-xl navbar-light bg-dark">
+        <a class="navbar-brand ml-5 " href="#" style="color:white;font-family: 'Californian FB'; margin-right: 180px;">
+            <img src="img/as.png" class="rounded-circle  mr-2 " style="width: 40px" >
+            <span class="pb-4">Огласник.мк</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <i class="fas fa-home" style="font-size: 2em; color: #d9534f;"></i>
+                <li class="nav-item active">
+
+                    <a class="nav-link" href="index.html" style="color:white;">Почетна<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="margin-left: 10px;">
+                    <a class="nav-link" href="Oglasnik.html " style="color:white;">Сите Огласи</a>
+                </li>
+                <li class="nav-item asd" style="margin-left: 10px;">
+                    <a class="nav-link" href="#" data-toggle="popoverNovOglas"  title="Најпрвин најавете се !"
+                       data-placement="bottom" data-trigger="hover" data-content="Неопходно е да се најавите за да имате пристап !!!"
+                       style="color:white;">Нов Оглас</a>
+                </li>
+
+                <li class="nav-item" style="margin-left: 10px;">
+
+                    <a class="nav-link" href="Contact.html" style="color:white;">Контакт</a>
+                </li>
+
+            </ul>
+            <span style="font-size: 2em; color: #d9534f;">
+            <i class="fas fa-sign-out-alt"> </i>
+            </span>
+
+            <span class="ml-3" style="font-size: 2em; color: #d9534f; margin-left: 5px;">
+            <i  class="fas fa-user-circle"></i>
+            <a href="#" class="btn text-danger m-0 p-0 pb-2 mr-5" data-toggle="modal" data-target="#loginModal">
+                <span class="pr-4" style="font-size: 20px">Log in / Register<span>
+            </a>
+        </span>
+
+        </div>
+    </nav>
+
+
+    <!--first-->
+    <div id="anim1" class="  w-50   container jumbotron text-center  pt-2 mt-4    pb-3  " style="border-bottom-style: solid;border-width: 1px; border-bottom-color: red ">
+
+        <div class="  pt-2 ">
+
+            <h2 class="text-center">Информации за контакт</h2>
+            <br>
+            <h6 class="text-center">Мобилен телефон: +389 75 555 444 </h6>
+
+            <h6 class="text-center">Фиксен телефон: 02 3 225 555</h6>
+
+            <br>
+            <h6>Внесете го вашиот Е-Маил <label style=" color: red">*</label></h6>
+
+            <div class="row justify-content-center">
+                <input class="cen form-control text-secondary  w-50" type="text">
+            </div>
+            <br>
+            <h6>Внесете број за контакт</h6>
+            <div class="row justify-content-center">
+            <input class="form-control-file  form-control   w-50" type="text">
+            </div>
+            <br>
+            <h6>Испратете порака: <label style=" color: red"> * </label></h6>
+            <textarea class="form-control-file form-control text-secondary "style="height: 70px" type="text"></textarea>
+            <br>
+            <input type="button" class="btn btn-success right w-100" value="Испрати" >
+
+            <br>
+            <label class="text-danger">Полињљта означени со  * (ѕвездичка) се задолжителни за пополнување</label>
+
+
+        </div>
+
+    </div>
+
+
+    <!--footer-->
+    <footer class="">
+        <div class="p-2 mt-3 footer-copyright text-center py-3 bg-dark text-light">
+            <br>
+            <h5 class="text-white">Следете не' на социјалните мрежи</h5>
+            <br>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-instagram" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-yahoo" href="#"><i class="fab fa-yahoo"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-twitter" href="#"><i class="fab fa-twitter"></i></a>
+            <br>
+            <div class="pt-2">
+                Copyright © 2019 - Oglasnik.mk
+            </div>
+
+
+        </div>
+    </footer>
+
+
+</div>
+</body>
+<!--animacii-->
+<script type="text/javascript">
+
+    $('#anim1').css('display','none');
+    $('#anim1').fadeIn(2000).slideDown(1500);
+
+
+
+</script>
+
+
+</html>
+
+
+
+
+
+

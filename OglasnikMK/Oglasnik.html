@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Огласник - Сите огласи</title>
+
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-social.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="js/jquery-3.4.1.js" crossorigin="anonymous"></script>
+    <script src="js/jquery-ui.js" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+    <!--slider script-->
+    <script>
+        $( function() {
+            $( "#slider-range" ).slider({
+                range: true,
+                min: 0,
+                max: 50000,
+                values: [ 3000, 10000],
+                slide: function( event, ui ) {
+                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+                }
+            });
+            $( "#amount" ).val( "$" + $( "#slider-range" ).slider( "values", 0 ) +
+                " - $" + $( "#slider-range" ).slider( "values", 1 ) );
+
+
+        });
+
+    </script>
+
+    <!--popover script-->
+    <script>
+        $(document).ready(function() {
+                $('[data-toggle="popoverNovOglas"]').popover();
+        });
+    </script>
+
+    <!--login form-->
+    <div class="modal fade" role="dialog" id="loginModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success" >
+                    <h3 class="modal-title text-white">Најавете се </h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body ">
+                    <div class="form-group">
+                        <input type="text" name="username" class="form-control" placeholder="Е-маил или Корисничко име">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" class="form-control" placeholder="Лозинка">
+                    </div>
+
+                    <a style="font-size: 90%" href="#">Сакате да се регистрирате?</a>
+                    <b style="color: white">|</b>
+                    <a style="font-size: 90%" href="#">Ја заборавивте лозинката?</a>
+                    <br>
+                    <br> <input type="checkbox" > Запомни ме
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" style="width: 140px" class="btn btn-success">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .aa:hover{
+            border-bottom-style: solid;
+            border-bottom-color: red;
+            border-right-color: transparent;
+            border-left-color:transparent ;
+            border-top-color:transparent ;
+
+        }
+        .asd:hover{
+            border-bottom-style: solid;
+            border-bottom-color: red;
+            border-width: 2px;
+            border-right-color: white;
+            border-left-color:white ;
+            border-top-color:white ;
+
+        }
+        .aaa:hover{
+            border-style:initial;
+            border-top-color: red;
+            border-bottom-color: red;
+            border-left-color: lightgrey;
+            border-right-color: lightgrey;
+            text-decoration-style: dashed;
+
+
+        }
+    </style>
+
+</head>
+<body>
+
+<!--navbar-->
+<nav class=" pb-1 mb-4  navbar navbar-expand-xl navbar-light bg-dark">
+    <a class="navbar-brand ml-5 " href="#" style="color:white;font-family: 'Californian FB'; margin-right: 180px;">
+        <img src="img/as.png" class="rounded-circle  mr-2 " style="width: 40px" >
+        <span class="pb-4">Огласник.мк</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <i class="fas fa-home" style="font-size: 2em; color: #d9534f;"></i>
+            <li class="nav-item active">
+
+                <a class="nav-link" href="index.html" style="color:white;">Почетна<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" style="margin-left: 10px;">
+                <a class="nav-link" href="Oglasnik.html " style="color:white;">Сите Огласи</a>
+            </li>
+            <li class="nav-item asd" style="margin-left: 10px;">
+                <a class="nav-link" href="#" data-toggle="popoverNovOglas"  title="Најпрвин најавете се !"
+                   data-placement="bottom" data-trigger="hover" data-content="Неопходно е да се најавите за да имате пристап !!!"
+                   style="color:white;">Нов Оглас</a>
+            </li>
+
+            <li class="nav-item" style="margin-left: 10px;">
+
+                <a class="nav-link" href="Contact.html" style="color:white;">Контакт</a>
+            </li>
+
+        </ul>
+        <span style="font-size: 2em; color: #d9534f;">
+            <i class="fas fa-sign-out-alt"> </i>
+            </span>
+
+        <span class="ml-3" style="font-size: 2em; color: #d9534f; margin-left: 5px;">
+            <i  class="fas fa-user-circle"></i>
+            <a href="#" class="btn text-danger m-0 p-0 pb-2 mr-5" data-toggle="modal" data-target="#loginModal">
+                <span class="pr-4" style="font-size: 20px">Log in / Register<span>
+            </a>
+        </span>
+
+    </div>
+</nav>
+
+<div style="background-color: lightgrey">
+
+
+<!--first-->
+<div id="anim1" class="    container jumbotron  pt-3    pb-3  justify-content-center" style="border-bottom-style: solid;border-width: 1px; border-bottom-color: red ">
+
+    <div class="row  justify-content-center">
+        <div class=" w-100 col-12 col-md-4 col-lg-3 col-xl-2">
+            <select id="inputState" class=" mb-2 form-control">
+                <option selected>Марка:</option>
+                <option>Ауди</option>
+                <option>БМВ</option>
+                <option>Волксваген</option>
+                <option>Рено</option>
+                <option>Масерати</option>
+                <option>Мерцедес</option>
+                <option>Порше</option>
+                <option>Ферари</option>
+
+            </select>
+            <select disabled id="inputStatee" class=" disable smb-2 form-control">
+                <option selected>Модел:</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option><2009</option>
+
+            </select>
+        </div>
+
+        <div class=" w-100 col-12 col-md-4 col-lg-3 col-xl-2">
+            <select id="inputStatee" class=" mb-2 form-control">
+                <option selected>Година од:</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option> < 2012 </option>
+            </select>
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Година до:</option>
+                <option>2019</option>
+                <option>2018</option>
+                <option>2017</option>
+                <option>2016</option>
+                <option>2015</option>
+                <option>2014</option>
+                <option>2013</option>
+                <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
+                <option><2009</option>
+
+            </select>
+        </div>
+
+        <div class=" w-100 col-12 col-md-4 col-lg-3 col-xl-2">
+            <select id="inputStatee" class=" mb-2 form-control">
+                <option selected>Гориво</option>
+                <option>Бензин</option>
+                <option>Бензин-плин</option>
+                <option>Дизел</option>
+                <option>Хибрид</option>
+                <option>Полу хибрид</option>
+            </select>
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Регистрација</option>
+                <option>Македонска</option>
+                <option>Странска</option>
+            </select>
+        </div>
+
+        <div class=" w-100 col-12 col-md-4 col-lg-3 col-xl-2">
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Километри:</option>
+                <option>0 - 150 000</option>
+                <option>150 000 - 200 000</option>
+                <option>200 000 - 250 000</option>
+                <option>250 000 - 300 000</option>
+                <option>+300 000</option>
+
+            </select>
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Менувач:</option>
+                <option>Рачен</option>
+                <option>Полу-автоматски</option>
+                <option>Автоматски</option>
+
+            </select>
+        </div>
+
+        <div class=" w-100 col-12 col-md-4 col-lg-3 col-xl-2">
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Регион</option>
+                <option>Цела Македонија</option>
+                <option>Скопје</option>
+                <option>Тетово</option>
+                <option>Гостивар</option>
+                <option>Прилеп</option>
+                <option>Битола</option>
+                <option>Охрид</option>
+                <option>Гевгелија</option>
+                <option>С.Николе</option>
+                <option>Солун</option>
+                <option>Велес</option>
+            </select>
+
+            <select id="inputStatee" class="mb-2 form-control">
+                <option selected>Тип:</option>
+                <option>Автомобил</option>
+                <option>Теренско</option>
+                <option>Автобус</option>
+                <option>Камион</option>
+
+            </select>
+        </div>
+
+    </div>
+
+    <div class=" row">
+
+        <div class="col-12 pl-5 com-sm-12 col-lg-5"><br>
+            <input id="asd" type="text" placeholder="Дополнителни спецификации" class="form-control w-100">
+
+        </div>
+        <div class="col-12 col-sm-12 col-lg-5">
+            <!--range slicer-->
+
+            <label for="amount">Цена по избор:</label>
+
+            <div class="w-100 bg-danger" id="slider-range"></div>
+            <input class="form-control" type="text"  id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+
+            <!--range slider end-->
+
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        <label class="checkbox-inline ml-5" style="font-family:'Bradley Hand ITC'"><input type="checkbox" value=""> Купувам </label>
+        <label class="checkbox-inline ml-2" style="font-family:'Bradley Hand ITC'"><input type="checkbox" value=""> Продавам </label>
+        <label class="checkbox-inline ml-2" style="font-family:'Bradley Hand ITC' "><input type="checkbox" value=""> Изнајмувам </label>
+
+        <button class="  btn btn-danger float-right">Пребарувај</button>
+    </div>
+</div>
+
+<!--second-->
+<div class="container-fluid">
+    <br>
+    <!--najnovi div -->
+    <div class=""style=" margin-top: -45px">
+        <ul class=" pagination align-content-center justify-content-center " >
+            <li class="page-item "><a class="page-link text-danger" href="#">Најнови први</a></li>
+            <li class="page-item active"><a class="page-link bg-danger" href="#">Најевтини први</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">Најскапи први</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">Промотивни први</a></li>
+        </ul>
+    </div>
+
+
+    <div class="w-100   pl-5  row container-fluid justify-content-center ">
+
+
+        <div style="min-width: 450px;border-top-style: outset;border-bottom-style: inset;"class=" col-sm-12 col-md-11 col-lg-8 col-7 " >
+            <br>
+            <!---->
+
+            <div class="aaa row   pt-2 pb-2" style=" border-style:solid;border-bottom-style: groove;border-top-style: outset;background-color: #F9E6E1">
+                <div class="col-5 ">
+                    <img class="w-100 rounded " src="img/used-2017-porsche-911-turboscabriolet-9871-16821015-1-640.jpg">
+                </div>
+                <div class="col-6">
+                    <label class="  float-right  mr-0  pr-1" style="position: static;color: darkslategray"> 09.09.2019</label>
+
+                    <h5>Porsche 4s - 1.5 TDS 4x4 110hp </h5>
+                    <p class="d-none d-sm-none d-lg-block d-xl-block d-md-block">Baba go vozela, proizveden 1999 ...
+                    <hr>
+                    <div class="">
+                        <label>Година: 2002</label> |
+                        <label>Километража: 156 000</label>
+                    </div><hr>
+                    <button class="btn-sm btn-primary btn-small">Повеќе информации></button>
+                    <label class="float-right">Цена: 12 400 €</label>
+                    </p>
+
+                </div>
+            </div>
+
+            <hr class=" bg-white">
+
+            <div class="aaa row p-1 mb-2 pt-2 pb-2" style=" border-style:solid;border-bottom-style: groove;border-top-style: outset;background-color: #F9E6E1">
+                <div class="col-5 ">
+                    <img class="w-100 rounded " src="img/tesla1.jpg">
+                </div>
+                <div class="col-6">
+                    <label class="  float-right  mr-0  pr-1" style="position: static;color: darkslategray">29.09.2019</label>
+
+                    <h5>Tesla Model X - </h5>
+                    <p class="d-none d-sm-none d-lg-block d-xl-block d-md-block">Колата е единствена во Македонија...
+                    <hr>
+                    <div class="">
+                        <label>Година: 2017</label> |
+                        <label>Километража: 96 000</label>
+                    </div>
+
+                    <hr>
+                    <button class="btn-sm btn-primary btn-small">Повеќе информации ></button>
+                    <label class="float-right"><u > Цена:</u> По договор</label>
+                    </p>
+
+                </div>
+            </div>
+
+            <hr class="bg-white">
+
+            <div class="aaa row p-1 mb-2 pt-2 pb-2" style=" border-style:solid;border-bottom-style: groove;border-top-style: outset;background-color: #F9E6E1">
+                <div class="col-5 ">
+
+                    <img class="w-100 rounded " src="img/рено.jpg">
+
+                </div>
+                <div class="col-6 ">
+                    <label class="  float-right  mr-0  pr-1" style="position: static;color: darkslategray">09.08.2019</label>
+
+                        <h5 class="p-1 m-1 ">Reno M - 2.5 TDS  </h5>
+
+                    <p class="d-none d-sm-none d-lg-block d-xl-block d-md-block">Екстра сочуван и сервисиран...
+                    <hr>
+                    <div class="">
+                        <label>Година: 2009</label> |
+                        <label>Километража: 108 000</label>
+
+                    </div>
+
+                    <hr>
+                    <button class="btn-sm btn-primary btn-small">Повеќе информации ></button>
+                    <label class="float-right"><u > Цена: 5 450</u> €</label>
+
+                    </p>
+
+
+                </div>
+            </div>
+
+            <hr class="bg-white">
+
+            <div class="aaa row p-1 mb-2 pt-2 pb-2" style=" border-style:solid;border-bottom-style: groove;border-top-style: outset;background-color: #F9E6E1">
+                <div class="col-5 ">
+                    <img class="w-100 rounded " src="img/jeep.jpg">
+                </div>
+                <div class="col-6">
+                    <label class="  float-right  mr-0  pr-1" style="position: static;color: darkslategray">02.04.2019</label>
+
+                    <h5>Jeep Wrangler </h5>
+                    <p class="d-none d-sm-none d-lg-block d-xl-block d-md-block">Контактирајте за повеќе информации...
+                    <hr>
+                    <div class="">
+                        <label>Година: 2014</label> |
+                        <label>Километража: 19 000</label>
+                    </div>
+
+                    <hr>
+                    <button class="btn-sm btn-primary btn-small">Повеќе информации ></button>
+                    <label class="float-right"><u > Цена: 75 450</u> €</label>
+                    </p>
+
+                </div>
+            </div>
+
+            <hr class="bg-white">
+
+
+        </div>
+
+        <!-- cards-->
+        <div class=" pt-4 d-none d-sm-none d-md-none d-lg-block d-xl-block ml-5 col-lg-3  ">
+            <div class="row p-0 m-0  ">
+                    <div class="  aa " style="border-bottom-style:wave;  ">
+                        <div class=" card w-100 " style="min-width: 250px; background-color:lightgrey;border-width: 2px;border-color:antiquewhite">
+                            <img class="w-100 " src="img/golff.jpg" >
+                            <div class="p-0 m-0  text-center alert alert-warning">
+                                <label>Промотивно </label>
+                            </div>
+                            <div class="card-body p-0 mt-2 text-center  ">
+                                <h6 style="font-family: 'Trebuchet MS'">Lada Niva S-2 4x4</h6>
+                                <button class="btn alert btn-success text-center  w-75" > Цена: 5 450 €</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" aa mt-2 " style="border-bottom-style:wave;  ">
+                        <div class=" card w-100 " style="min-width: 250px; background-color:lightgrey;border-width: 2px;border-color:antiquewhite">
+                            <img class="w-100 " src="img/IMG-20180602-WA0002.jpg" >
+                            <div class="p-0 m-0  text-center alert alert-warning">
+                                <label>Промотивно </label>
+                            </div>
+                            <div class="card-body p-0 mt-2 text-center  ">
+                                <h6 style="font-family: 'Trebuchet MS'">Lada Niva S-2 4x4</h6>
+                                <button class="btn alert btn-success text-center  w-75" > Цена: 5 450 €</button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" aa mt-2 " style="border-bottom-style:wave;  ">
+                        <div class=" card w-100 " style="min-width: 250px; background-color:lightgrey;border-width: 2px;border-color:antiquewhite">
+                            <img class="w-100 " src="img/mustang.jpg" >
+                            <div class="p-0 m-0  text-center alert alert-warning">
+                                <label>Промотивно </label>
+                            </div>
+                            <div class="card-body p-0 mt-2 text-center  ">
+                                <h6 style="font-family: 'Trebuchet MS'">FORD MUSTANG</h6>
+                                <button class="btn alert btn-success text-center  w-75" > Цена: 45 400 €</button>
+
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+
+        </div>
+
+
+        <!--1 2 3-->
+        <ul class=" pt-4  pagination " >
+            <li class="page-item"><a class="page-link text-danger" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link bg-danger" href="#">1</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">Next</a></li>
+        </ul>
+
+
+    </div>
+
+    </div>
+
+
+    <!--cards below-->
+    <div class="row pl-3 m-0  d-xs-flex d-sm-flex d-xl-none d-lg-none text-center align-content-center align-self-center justify-content-center">
+
+        <div class="row mr-1 w-100 ">
+
+            <div class="   col-4   col-sm-4 col-md-4  ">
+                <div class="asd card w-100 " style="background-color: transparent">
+                    <img class="w-100 " src="img/IMG-20180602-WA0002.jpg" >
+                    <div class="p-0 m-0  text-center alert alert-warning">
+                        <label>Промотивно </label>
+                    </div>
+                    <div class="card-body p-0 mt-2 text-center  ">
+                        <h6 style="font-family: 'Trebuchet MS'">Lada Niva S-2 4x4</h6>
+                        <button class="btn alert btn-success text-center  w-75" > Цена: 3 400 €</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="   col-4   col-sm-4 col-md-4  ">
+                <div class="asd card w-100 " style="background-color: transparent">
+                    <img class="w-100 " src="img/mustang.jpg" >
+                    <div class="p-0 m-0  text-center alert alert-warning">
+                        <label> Промотивно 1 класа</label>
+                    </div>
+                    <div class="card-body p-0 mt-2 text-center  ">
+                        <h6 style="font-family: 'Trebuchet MS'">Lada Niva S-2 4x4</h6>
+                        <button class="btn alert btn-success text-center  w-75" > Цена: 45 400 €</button>
+                    </div>
+                </div>
+            </div>
+            <div class="   col-4   col-sm-4 col-md-4  ">
+                <div class="asd card w-100 " style="background-color: transparent">
+                    <img class="w-100 " src="img/golff.jpg" >
+                    <div class="p-0 m-0  text-center alert alert-warning">
+                        <label>Промотивно </label>
+                    </div>
+                    <div class="card-body p-0 mt-2 text-center  ">
+                        <h6 style="font-family: 'Trebuchet MS'">Golf 5 GTD</h6>
+                        <button class="btn alert btn-success text-center  w-75" > Цена: 5 400 €</button>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!--1 2 3-->
+        <ul class=" pt-3 mt-3 pagination " >
+            <li class="page-item"><a class="page-link text-danger" href="#">Previous</a></li>
+            <li class="page-item active"><a class="page-link bg-danger" href="#">1</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">2</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">3</a></li>
+            <li class="page-item"><a class="page-link text-danger" href="#">Next</a></li>
+        </ul>
+
+    </div>
+
+
+
+    <!--footer-->
+    <footer class="">
+        <div class="p-2 mt-3 footer-copyright text-center py-3 bg-dark text-light">
+            <br>
+            <h5 class="text-white">Следете не' на социјалните мрежи</h5>
+            <br>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-instagram" href="#"><i class="fab fa-instagram"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-yahoo" href="#"><i class="fab fa-yahoo"></i></a>
+            <a class="d-inline-flex mx-3 justify-content-center align-items-center text-white rounded-circle shadow btn btn-twitter" href="#"><i class="fab fa-twitter"></i></a>
+            <br>
+            <div class="pt-2">
+                Copyright © 2019 - Oglasnik.mk
+            </div>
+
+
+        </div>
+    </footer>
+
+</div>
+<!--animacii-->
+<script type="text/javascript">
+
+    $('#anim1').css('display','none');
+    $('#anim2').css('display','none');
+
+    $('#anim1').toggle(1000);
+    $('#anim2').delay(500).toggle(1000).delay(1000).fadeOut(500);
+
+
+
+</script>
+
+</body>
+
+</html>
